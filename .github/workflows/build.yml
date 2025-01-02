@@ -20,7 +20,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -Bbuild -G Ninja -C ./cmake/caches/PredefinedParams.cmake -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_COMPILER=clang-cl -DCMAKE_BUILD_TYPE=Release 
+          cmake -Bbuild -G Ninja -C ./cmake/caches/PredefinedParams.cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Release 
 
       - name: Build
         run: |
