@@ -18,4 +18,4 @@ jobs:
       - name: Build
         run: |
           .\utils\hct\hctstart.cmd . .\build
-          .\utils\hct\hctbuild.cmd -x64 -Release -show-cmake-log
+          .\utils\hct\hctbuild.cmd -x64 -Release -buildoutdir .\build -show-cmake-log
