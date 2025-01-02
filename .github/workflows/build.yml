@@ -15,13 +15,7 @@ jobs:
         with:
           submodules: true
 
-      - name: Install Ninja
-        run: choco install ninja -y
-
-      - name: Configure CMake
-        run: |
-          cmake -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Release -C ./cmake/caches/PredefinedParams.cmake
-
       - name: Build
         run: |
-          ninja -C build
+          .\utils\hct\hctstart.cmd . .\build
+          .\utils\hct\hctbuild.cmd -x64 -Release -show-cmake-log
