@@ -15,8 +15,11 @@ jobs:
         with:
           submodules: true
 
+      - name: Install Ninja
+        run: choco install ninja -y
+        
+      - name: Configure CMake
+        run: cmake -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_COMPILER=clang-cl -C ./cmake/caches/PredefinedParams.cmake
+      
       - name: Build
-        run: |
-          mkdir build
-          .\utils\hct\hctstart.cmd . .\build
-          .\utils\hct\hctbuild.cmd -x64 -Release -buildoutdir .\build -show-cmake-log
+        run: ninja -C build
