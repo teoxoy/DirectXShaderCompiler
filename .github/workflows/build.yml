@@ -21,10 +21,10 @@ jobs:
       - name: Configure CMake
         run: |
           mkdir build
-          cmake -S . -B build -G Ninja -C cmake/caches/PredefinedParams.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_COMPILER=clang-cl -Wno
+          cmake -S . -B build -G Ninja -C cmake/caches/PredefinedParams.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_COMPILER=clang-cl -A x64
       
       - name: Build
-        run: cmake --build build --config Release
+        run: cmake --build build --config Release --verbose
 
       - uses: actions/upload-artifact@v4
         with:
