@@ -21,7 +21,7 @@ jobs:
       - name: Configure CMake
         run: |
           mkdir build
-          cmake -S . -B build -G Ninja -C cmake/caches/PredefinedParams.cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_COMPILER=clang-cl
+          cmake -S . -B build -G "Visual Studio 17 2022" -T ClangCL -A x64 -DCMAKE_BUILD_TYPE=Release -DCMAKE_C_COMPILER=clang-cl -DCMAKE_CXX_COMPILER=clang-cl -C cmake/caches/PredefinedParams.cmake
       
       - name: Build
         run: cmake --build build --config Release --verbose
